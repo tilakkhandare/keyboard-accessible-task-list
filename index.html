@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Accessible Task Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container" role="main">
+    <header>
+      <h1 id="app-title">Accessible Task List</h1>
+      <p class="subtitle">Navigate with <strong>Tab</strong>, activate with <strong>Enter</strong> or <strong>Space</strong>.</p>
+    </header>
+
+    <form id="task-form" aria-labelledby="app-title" class="input-group">
+      <label for="task-input" class="visually-hidden">New task description</label>
+      <input 
+        type="text" 
+        id="task-input" 
+        placeholder="Add a new task and press Enter..." 
+        aria-label="New task description"
+        autocomplete="off"
+        required
+      />
+      <button type="submit" id="add-btn" tabindex="0">Add Task</button>
+    </form>
+
+    <div id="status-announcer" class="visually-hidden" aria-live="polite"></div>
+
+    <ul id="task-list" role="list" aria-label="Tasks">
+      <!-- Tasks injected dynamically -->
+    </ul>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
